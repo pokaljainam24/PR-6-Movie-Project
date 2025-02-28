@@ -1,0 +1,140 @@
+<%- include('../partials/clientHeader') %>
+	<div id="site-content">
+		<main class="main-content">
+			<div class="container">
+				<div class="page">
+					<div class="breadcrumbs">
+						<a href="index.html">Home</a>
+						<span>Movie Review</span>
+					</div>
+
+					<div class="filters">
+						<select name="#" id="#" placeholder="Choose Category">
+							<option value="#">Action</option>
+							<option value="#">Drama</option>
+							<option value="#">Fantasy</option>
+							<option value="#">Horror</option>
+							<option value="#">Adventure</option>
+						</select>
+						<select name="#" id="#">
+							<option value="#">2012</option>
+							<option value="#">2013</option>
+							<option value="#">2014</option>
+						</select>
+					</div>
+					<div class="movie-list">
+						<% if (movies && movies.length > 0) { %>
+							<% movies.forEach(movie => { %>
+								<div class="movie">
+									<figure class="movie-poster" style="display: flex;
+									justify-content: center;
+									align-items: center;
+									width: 100%; ">
+										<img src="/uploads/<%= movie.thumbnail %>" alt="<%= movie.title %>" style="width: 100%;  
+										height: 300px;
+										object-fit: fill;">
+									</figure>
+									<div class="movie-title">
+										<a href="/single/<%= movie._id %>"><%= movie.title %></a>
+									</div>
+									<p><%= movie.discription %></p>
+								</div>
+							<% }); %>
+						<% } else { %>
+							<p>No movies available.</p>
+						<% } %>
+					</div>
+					 <!-- .movie-list -->
+
+					<div class="pagination">
+						<a href="#" class="page-number prev"><i class="fa fa-angle-left"></i></a>
+						<span class="page-number current">1</span>
+						<a href="#" class="page-number">2</a>
+						<a href="#" class="page-number">3</a>
+						<a href="#" class="page-number">4</a>
+						<a href="#" class="page-number">5</a>
+						<a href="#" class="page-number next"><i class="fa fa-angle-right"></i></a>
+					</div>
+				</div>
+			</div> <!-- .container -->
+		</main>
+		<footer class="site-footer">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-2">
+						<div class="widget">
+							<h3 class="widget-title">About Us</h3>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia tempore vitae mollitia
+								nesciunt saepe cupiditate</p>
+						</div>
+					</div>
+					<div class="col-md-2">
+						<div class="widget">
+							<h3 class="widget-title">Recent Review</h3>
+							<ul class="no-bullet">
+								<li>Lorem ipsum dolor</li>
+								<li>Sit amet consecture</li>
+								<li>Dolorem respequem</li>
+								<li>Invenore veritae</li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-md-2">
+						<div class="widget">
+							<h3 class="widget-title">Help Center</h3>
+							<ul class="no-bullet">
+								<li>Lorem ipsum dolor</li>
+								<li>Sit amet consecture</li>
+								<li>Dolorem respequem</li>
+								<li>Invenore veritae</li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-md-2">
+						<div class="widget">
+							<h3 class="widget-title">Join Us</h3>
+							<ul class="no-bullet">
+								<li>Lorem ipsum dolor</li>
+								<li>Sit amet consecture</li>
+								<li>Dolorem respequem</li>
+								<li>Invenore veritae</li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-md-2">
+						<div class="widget">
+							<h3 class="widget-title">Social Media</h3>
+							<ul class="no-bullet">
+								<li>Facebook</li>
+								<li>Twitter</li>
+								<li>Google+</li>
+								<li>Pinterest</li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-md-2">
+						<div class="widget">
+							<h3 class="widget-title">Newsletter</h3>
+							<form action="#" class="subscribe-form">
+								<input type="text" placeholder="Email Address">
+							</form>
+						</div>
+					</div>
+				</div> <!-- .row -->
+
+				<div class="colophon">Copyright 2014 Company name, Designed by Themezy. All rights reserved</div>
+			</div> <!-- .container -->
+
+		</footer>
+	</div>
+	<!-- Default snippet for navigation -->
+
+
+
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<script src="js/plugins.js"></script>
+	<script src="js/app.js"></script>
+
+	</body>
+
+	</html>

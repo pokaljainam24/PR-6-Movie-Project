@@ -1,0 +1,94 @@
+<%- include("../partials/header.ejs")%>
+
+<!-- ============================================================== -->
+<!-- End Left Sidebar - style you can find in sidebar.scss  -->
+<!-- ============================================================== -->
+<!-- ============================================================== -->
+<!-- Page wrapper  -->
+<!-- ============================================================== -->
+<div class="page-wrapper text-light" style="background-color: rgba(145, 135, 135, 0.808);">
+  <!-- ============================================================== -->
+  <!-- Bread crumb and right sidebar toggle -->
+  <!-- ============================================================== -->
+  <div class="page-breadcrumb text-light" style="background-color: rgba(145, 135, 135, 0.808);">
+    <div class="row">
+      <div class="col-12 d-flex no-block align-items-center">
+        <h4 class="page-title fs-2">Movies List</h4>
+        <div class="ms-auto text-end">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="#" class="text-light fw-bold">Home</a></li>
+              <li class="breadcrumb-item active text-light fw-bold" aria-current="page">
+                View movies details
+              </li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ============================================================== -->
+  <!-- End Bread crumb and right sidebar toggle -->
+  <!-- ============================================================== -->
+  <!-- ============================================================== -->
+  <!-- Container fluid  -->
+  <!-- ============================================================== -->
+  <div class="container-fluid text-light" style="background-color: rgba(145, 135, 135, 0.808);">
+    <!-- ============================================================== -->
+    <!-- Start Page Content -->
+    <!-- ============================================================== -->
+    <div class="row">
+      <div class="col-12">
+        <div class="card bg-dark text-light"> <!-- Card background dark -->
+          <div class="card-body"></div>
+          <table class="table table-dark table-bordered"> <!-- Dark table -->
+            <thead>
+              <tr>
+                <th scope="col" class="text-light">#</th>
+                <th scope="col" class="text-light">Movie Name</th>
+                <th scope="col" class="text-light">Thumbnail</th>
+                <th scope="col" class="text-light w-50">Description</th>
+                <th scope="col" class="text-light">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% movies.forEach((movie,index)=>{ %>
+              <tr>
+                <td><%= index+1 %></td>
+                <td><%= movie.title %></td>
+                <td>
+                  <img src="uploads/<%= movie.thumbnail%>" alt="<%= movie.title%>" width="100px" />
+                </td>
+                <td><%= movie.discription %></td>
+                <td>
+                  <a href="/delete/<%=movie.id%>" class="btn btn-danger">Delete</a>
+                  <a href="/edit/<%=movie.id%>" class="btn btn-warning">Edit</a>
+                </td>
+              </tr>
+              <% }) %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+    <!-- ============================================================== -->
+    <!-- End PAge Content -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Right sidebar -->
+    <!-- ============================================================== -->
+    <!-- .right-sidebar -->
+    <!-- ============================================================== -->
+    <!-- End Right sidebar -->
+    <!-- ============================================================== -->
+  </div>
+  <!-- ============================================================== -->
+  <!-- End Container fluid  -->
+  <!-- ============================================================== -->
+  <!-- ============================================================== -->
+  <!-- footer -->
+  <!-- ============================================================== -->
+
+  <%- include("../partials/footer.ejs")%>
+</div>

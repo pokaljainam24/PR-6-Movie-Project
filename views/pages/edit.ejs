@@ -1,0 +1,91 @@
+
+<%- include("../partials/header") %>
+
+<div class="page-wrapper">
+  <div class="page-breadcrumb">
+    <div class="row">
+      <div class="col-12 d-flex no-block align-items-center">
+        <h4 class="page-title">Edit Movie Info</h4>
+        <div class="ms-auto text-end">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="/">Home</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Edit Movie Details</li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <form class="form-horizontal w-50" method="post" action="/update/<%= movie._id %>" enctype="multipart/form-data">
+            <div class="card-body">
+              
+              <!-- Movie Name -->
+              <div class="form-group row">
+                <label for="mname" class="col-sm-3 text-end control-label col-form-label">Movie Name</label>
+                <div class="col-sm-9">
+                  <input 
+                    type="text" 
+                    class="form-control" 
+                    id="mname" 
+                    name="title" 
+                    placeholder="Movie Name Here" 
+                    required 
+                    value="<%= movie.title %>"
+                  />
+                </div>
+              </div>
+
+              <!-- Show Current Thumbnail -->
+              <div class="form-group row">
+                <label class="col-sm-3 text-end control-label col-form-label">Current Thumbnail</label>
+                <div class="col-sm-9">
+                  <% if (movie.thumbnail) { %>
+                    <img src="/uploads/<%= movie.thumbnail %>" alt="Movie Thumbnail" width="100">
+                  <% } else { %>
+                    <p>No Image Available</p>
+                  <% } %>
+                </div>
+              </div>
+
+              <!-- Upload New Thumbnail -->
+              <div class="form-group row">
+                <label for="thumb" class="col-sm-3 text-end control-label col-form-label">Upload New Thumbnail</label>
+                <div class="col-sm-9">
+                  <input type="file" class="form-control" id="thumb" name="thumbnail">
+                </div>
+              </div>
+
+              <!-- Hidden input to store old image path -->
+              <input type="hidden" name="old_thumbnail" value="<%= movie.thumbnail %>">
+
+              <!-- Movie Description -->
+              <div class="form-group row">
+                <label for="description" class="col-sm-3 text-end control-label col-form-label">Description</label>
+                <div class="col-sm-9">
+                  <textarea class="form-control" id="discription" name="discription" required><%= movie.discription %></textarea>
+                </div>
+              </div>
+
+            </div>
+            
+            <!-- Submit Button -->
+            <div class="border-top">
+              <div class="card-body">
+                <button type="submit" class="btn btn-primary">Update</button>
+              </div>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include("../partials/footer") %>
