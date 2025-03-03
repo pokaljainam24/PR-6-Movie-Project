@@ -10,7 +10,7 @@ const path = require('path');
 const cookieParser = require('cookie-parser');  // ✅ Correct import
 
 
-const port = 8030;
+const port = 8055;
 const app = express();
 db();
 
@@ -21,7 +21,7 @@ app.set('view engine', 'ejs');
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/uploads", express.static(path.join(__dirname, 'uploads')));
-app.use("/movies", movieRouter); // Make sure this line is present
+app.use("/movies", movieRouter); // Make sure this line is present      
 app.use(cookieParser());
 
 // Routes
@@ -46,9 +46,6 @@ app.get("/about", (req, res) => {
 app.get('/single', (req, res) => {
     res.render('pages/single'); // Make sure 'single.ejs' exists inside 'views/pages/'
 });
-
-
-
 
 // Start server
 app.listen(port, () => {
