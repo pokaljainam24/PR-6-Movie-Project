@@ -19,11 +19,15 @@ Cookie-based Authentication
 [Live Project](https://pr-6-movie-project.onrender.com) <!-- Replace with actual hosted link -->
 
 ## 📸 Screenshots
-1.**[Authentication Form Page]** ![image](https://github.com/user-attachments/assets/ad8e6ecd-5087-414d-88c2-f63fdef7e4d0) <!-- Add screenshots in a 'screenshots' folder -->
-2.**[Admin Panel Page]**![image](https://github.com/user-attachments/assets/0fb6d67d-a7ea-4449-8035-46ba243fdc4d) <!-- Add screenshots in a 'screenshots' folder -->
-3.**[Add-Movie Data Form Page]**![image](https://github.com/user-attachments/assets/22f5b106-bb62-47cf-b131-e18b6a5ef99b) <!-- Add screenshots in a 'screenshots' folder -->
-4.**[View-Movie Data Page]**![image](https://github.com/user-attachments/assets/e883f859-bec8-46e4-b341-b1ce266ab6cf) <!-- Add screenshots in a 'screenshots' folder -->
-5.**[Home Page]**![image](https://github.com/user-attachments/assets/c9604804-9918-4cbb-9727-5dc5dec56cef) <!-- Add screenshots in a 'screenshots' folder -->
+1.**[Authentication Form Page]**  ![image](https://github.com/user-attachments/assets/ad8e6ecd-5087-414d-88c2-f63fdef7e4d0) <!-- Add screenshots in a 'screenshots' folder -->
+
+2.**[Admin Panel Page]**  ![image](https://github.com/user-attachments/assets/0fb6d67d-a7ea-4449-8035-46ba243fdc4d) <!-- Add screenshots in a 'screenshots' folder -->
+
+3.**[Add-Movie Data Form Page]**  ![image](https://github.com/user-attachments/assets/22f5b106-bb62-47cf-b131-e18b6a5ef99b) <!-- Add screenshots in a 'screenshots' folder -->
+
+4.**[View-Movie Data Page]**  ![image](https://github.com/user-attachments/assets/e883f859-bec8-46e4-b341-b1ce266ab6cf) <!-- Add screenshots in a 'screenshots' folder -->
+
+5.**[Home Page]**  ![image](https://github.com/user-attachments/assets/c9604804-9918-4cbb-9727-5dc5dec56cef) <!-- Add screenshots in a 'screenshots' folder -->
 
 ## 🛠️ Installation
 1. Clone this repository:
