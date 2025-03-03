@@ -11,4 +11,6 @@ router.get("/clientHome", (req, res) => {
     res.render("clientHome", { username }); // Render home page with username
 });
 
+
+
 module.exports = router;

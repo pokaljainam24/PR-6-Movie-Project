@@ -63,6 +63,8 @@ module.exports.addMoviePage = (req, res) => {
 }
 
 module.exports.addMovie = async (req, res) => {
+    console.log(req.body);
+
     try {
         await movieModel.create({ ...req.body, thumbnail: req.file.filename });
         console.log('Movie added successfully');
@@ -129,6 +131,18 @@ module.exports.update = async (req, res) => {
         return res.redirect('/view');  // Or handle errors properly
     }
 };
+
+module.exports.openSinglePage = async (req, res) => {
+    console.log(req.params);
+    const { id } = req.params;
+    try {
+        const movie = await movieModel.findById(id);
+        return res.render("pages/single", { movie });
+    } catch (error) {
+        console.log(error.message);
+        return res.render("./pages/single", { movie: {} });
+    }
+}
 
 module.exports.logout = (req, res) => {
     res.clearCookie('userId'); // No need to pass 'id'

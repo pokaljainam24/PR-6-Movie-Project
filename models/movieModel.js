@@ -15,9 +15,20 @@ const movieSchema = new mongoose.Schema({
         required: true,
         trim: true
     },
+    rating: {
+        type: Number,
+        required: true
+    },
+    author: {
+        type: String,
+        required: true
+    },
+    date: {
+        type: Date,
+        required: true
+    }
 }, { timestamps: true });
 
 const movieModel = mongoose.model("Movie", movieSchema);
 
 module.exports = movieModel;
-

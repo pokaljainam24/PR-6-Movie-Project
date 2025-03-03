@@ -15,7 +15,7 @@ movieRouter.get("/view", movieController.view);
 // Route for About Page
 movieRouter.get("/about", movieController.aboutPage);
 movieRouter.get("/review", movieController.reviewPage);
-movieRouter.get("/single", movieController.singlePage);
+movieRouter.get("/single/:id", movieController.openSinglePage);
 
 // Movie Operations
 movieRouter.get("/delete/:id", movieController.delete);

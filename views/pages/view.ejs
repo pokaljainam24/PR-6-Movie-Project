@@ -45,9 +45,12 @@
             <thead>
               <tr>
                 <th scope="col" class="text-light">#</th>
-                <th scope="col" class="text-light">Movie Name</th>
+                <th scope="col" class="text-light" style="width: 15%;">Movie Name</th>
                 <th scope="col" class="text-light">Thumbnail</th>
-                <th scope="col" class="text-light w-50">Description</th>
+                <th scope="col" class="text-light w-25">Description</th>
+                <th scope="col" class="text-light">Rating</th>
+                <th scope="col" class="text-light">Author</th>
+                <th scope="col" class="text-light" style="width: 10%;">Date</th>
                 <th scope="col" class="text-light">Action</th>
               </tr>
             </thead>
@@ -60,6 +63,9 @@
                   <img src="uploads/<%= movie.thumbnail%>" alt="<%= movie.title%>" width="100px" />
                 </td>
                 <td><%= movie.discription %></td>
+                <td><%= movie.rating %></td>
+                <td><%= movie.author %></td>
+                <td><%= movie.date %></td>
                 <td>
                   <a href="/delete/<%=movie.id%>" class="btn btn-danger">Delete</a>
                   <a href="/edit/<%=movie.id%>" class="btn btn-warning">Edit</a>
