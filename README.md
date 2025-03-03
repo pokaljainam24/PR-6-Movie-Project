@@ -78,6 +78,6 @@ Middleware: Multer, Cookie-parser, Body-parser
 └── README.md
 ```
 
-## Made with ❤️ by Your Name
+## Made with ❤️ by Jainam Pokal
 
 Jainam Pokal [(https://github.com/pokaljainam24)]
