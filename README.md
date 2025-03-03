@@ -16,7 +16,7 @@ File Upload using Multer
 Cookie-based Authentication
 
 ## 🚀 Live Demo
-[Live Project](https://pr-6-movie-project.onrender.com) <!-- Replace with actual hosted link -->
+This will instantly open My live project in the default web browser...🚀 [Live Project](https://pr-6-movie-project.onrender.com) <!-- Replace with actual hosted link -->
 
 ## 📸 Screenshots
 1.**[Authentication Form Page]**  ![image](https://github.com/user-attachments/assets/ad8e6ecd-5087-414d-88c2-f63fdef7e4d0) <!-- Add screenshots in a 'screenshots' folder -->
