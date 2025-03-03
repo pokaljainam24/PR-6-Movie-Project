@@ -36,7 +36,7 @@ exports.aboutPage = async (req, res) => {
 exports.reviewPage = async (req, res) => {
     try {
         const movies = await Movie.find();
-        res.render("pages/review", { movies }); // ✅ Fix: Include "pages/"
+        res.render("pages/review", { movies }); // Fix: Include "pages/"
     } catch (error) {
         console.error(error);
         res.status(500).send("Server Error");
@@ -125,7 +125,7 @@ module.exports.update = async (req, res) => {
 
         await movieModel.findByIdAndUpdate(id, update);
         console.log('Movie updated successfully');
-        return res.redirect('/admin');  // ✅ Redirecting to the dashboard after update
+        return res.redirect('/admin');  // Redirecting to the dashboard after update
     } catch (error) {
         console.log(error.message);
         return res.redirect('/view');  // Or handle errors properly

@@ -1,13 +1,13 @@
 const express = require('express');
 const db = require('./configs/database');
-const adminAuth = require("./middlewares/adminAuth");  // ✅ Import once
+const adminAuth = require("./middlewares/adminAuth");  // Import once
 const movieRouter = require('./routers/movieRouter');
 const bodyParser = require('body-parser');
 const movieModel = require('./models/movieModel');
 const bcrypt = require('bcrypt');
 const multer = require('multer');
 const path = require('path');
-const cookieParser = require('cookie-parser');  // ✅ Correct import
+const cookieParser = require('cookie-parser');  // Correct import
 
 
 const port = 8055;
@@ -32,7 +32,7 @@ const loginRoute = require("./routers/loginRouter");
 app.use(loginRoute);
 
 const adminRoute = require("./routers/movieRouter");
-app.use(adminRoute);  // ✅ `adminAuth` should be inside `movieRouter.js`
+app.use(adminRoute);  // adminAuth should be inside `movieRouter.js`
 
 const userRoute = require("./routers/clientRouter");
 app.use(userRoute);
