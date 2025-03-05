@@ -1,12 +1,9 @@
-const express = require("express");
-const router = express.Router();
+const express = require('express');
+const loginRouter = express.Router();
 const loginController = require('../controllers/loginController');
+const adminAuth = require('../middlewares/adminAuth');
 
-//-1 open login page
-router.get("/login",loginController.openLoginPage);
+loginRouter.get("/login", loginController.loginPage);
+loginRouter.post("/login", loginController.loginUser);
 
-//-2 submit form on login page
-router.post("/login",loginController.submitFormOnLoginPage);
-
-//- send all the routes to the index.js file
-module.exports = router;
+module.exports = loginRouter;

@@ -7,7 +7,7 @@ const movieSchema = new mongoose.Schema({
         trim: true
     },
     thumbnail: {
-        type: String, // Will store the filename of the uploaded image
+        type: String,
         required: true
     },
     discription: {

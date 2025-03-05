@@ -1,30 +1,25 @@
 const express = require('express');
 const db = require('./configs/database');
-const adminAuth = require("./middlewares/adminAuth");  // Import once
-const movieRouter = require('./routers/movieRouter');
+const adminAuth = require("./middlewares/adminAuth");
 const bodyParser = require('body-parser');
-const movieModel = require('./models/movieModel');     
 const bcrypt = require('bcrypt');
 const multer = require('multer');
 const path = require('path');
-const cookieParser = require('cookie-parser');  // Correct import
-
+const cookieParser = require('cookie-parser');
+const Movie = require('./models/movieModel');
 
 const port = 8055;
 const app = express();
 db();
 
-
 // Set view engine
 app.set('view engine', 'ejs');
 
-
-// Middleware setup
-app.use(express.static('public'));
+// Middleware setup (in correct order)
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use("/uploads", express.static(path.join(__dirname, 'uploads')));
-app.use("/movies", movieRouter); // Make sure this line is present      
 app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
+app.use("/uploads", express.static(path.join(__dirname, '/uploads')));
 
 
 // Routes
@@ -34,23 +29,22 @@ app.use(signupRoute);
 const loginRoute = require("./routers/loginRouter");
 app.use(loginRoute);
 
-const adminRoute = require("./routers/movieRouter");
-app.use(adminRoute);  // adminAuth should be inside `movieRouter.js`
+const clientRouter = require("./routers/clientRouter");
+app.use(clientRouter);
 
-const userRoute = require("./routers/clientRouter");
-app.use(userRoute);
+// admin router
+const adminRouter = require("./routers/adminRouter");
+app.use("/", adminRouter);
 
-
-// about page
+// About page
 app.get("/about", (req, res) => {
-    res.render("pages/about", { movies: [] }); // Ensure movies is defined
+    res.render("pages/about", { movies: [] });
 });
 
-// single page
+// Single page
 app.get('/single', (req, res) => {
-    res.render('pages/single'); // Make sure 'single.ejs' exists inside 'views/pages/'
+    res.render('pages/single');
 });
-
 
 // Start server
 app.listen(port, () => {

@@ -1,62 +1,15 @@
-const movieModel = require('../models/movieModel');
-const Movie = require("../models/movieModel"); // Adjust path if needed
+const movieModel = require("../models/movieModel");
+const clientRouter = require("../routers/clientRouter");
 
 module.exports.homePage = async (req, res) => {
     try {
-        const movies = await Movie.find(); // Fetch movies from database
-        res.render("index", { movies }); // Pass movies to EJS
+        const movies = await movieModel.find();
+        res.render("index", { movies });
     } catch (error) {
         console.error("Error fetching movies:", error);
-        res.status(500).send("Server Error");
     }
 };
 
-exports.clientHome = async (req, res) => {
-    try {
-        const movies = await Movie.find(); // Fetch movies from the database
-        console.log("Movies fetched:", movies); // Debugging log
-
-        res.render("pages/clientHome", { movies }); // Pass movies to EJS
-    } catch (error) {
-        console.error("Error fetching movies:", error);
-        res.status(500).send("Error fetching movies");
-    }
-};
-
-exports.aboutPage = async (req, res) => {
-    try {
-        const movies = await Movie.find(); // Fetch all movies from MongoDB
-        res.render("pages/about", { movies }); // Pass movies array to EJS
-    } catch (error) {
-        console.error("Error fetching movies:", error);
-        res.status(500).send("Internal Server Error");
-    }
-};
-
-exports.reviewPage = async (req, res) => {
-    try {
-        const movies = await Movie.find();
-        res.render("pages/review", { movies }); // Fix: Include "pages/"
-    } catch (error) {
-        console.error(error);
-        res.status(500).send("Server Error");
-    }
-};
-
-
-exports.singlePage = async (req, res) => {
-    const { id } = req.params;
-    try {
-        const movie = await Movie.findById(id);
-        if (!movie) {
-            return res.status(404).send("Movie not found");
-        }
-        return res.render("./pages/single.ejs", { movie });
-    } catch (error) {
-        console.error("Error fetching movie:", error);
-        res.status(500).send("Error fetching movie");
-    }
-}
 
 module.exports.addMoviePage = (req, res) => {
     return res.render('./pages/add-movie.ejs');
@@ -81,7 +34,7 @@ module.exports.view = async (req, res) => {
         return res.render('./pages/view.ejs', { movies });
     } catch (error) {
         console.log(error.message);
-        return res.render('./pages/view.ejs', { movies: {} });
+        return res.render('./pages/view.ejs', { movies: [] });
     }
 };
 
@@ -125,10 +78,10 @@ module.exports.update = async (req, res) => {
 
         await movieModel.findByIdAndUpdate(id, update);
         console.log('Movie updated successfully');
-        return res.redirect('/admin');  // Redirecting to the dashboard after update
+        return res.redirect('/admin');
     } catch (error) {
         console.log(error.message);
-        return res.redirect('/view');  // Or handle errors properly
+        return res.redirect('/view');
     }
 };
 
@@ -145,6 +98,6 @@ module.exports.openSinglePage = async (req, res) => {
 }
 
 module.exports.logout = (req, res) => {
-    res.clearCookie('userId'); // No need to pass 'id'
-    return res.redirect('/login'); // Redirect to login page
+    res.clearCookie('userId');
+    return res.redirect('/login');
 };
