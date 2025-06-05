@@ -7,6 +7,7 @@ const multer = require('multer');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const Movie = require('./models/movieModel');
+const nodemailer = require('nodemailer');
 
 const port = 8055;
 const app = express();
@@ -18,7 +19,7 @@ app.set('view engine', 'ejs');
 // Middleware setup (in correct order)
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static("public"));
 app.use("/uploads", express.static(path.join(__dirname, '/uploads')));
 
 
@@ -44,6 +45,38 @@ app.get("/about", (req, res) => {
 // Single page
 app.get('/single', (req, res) => {
     res.render('pages/single');
+});
+
+
+// Send Mail
+app.post('/send', (req, res) => {
+    const { name, email, website, message } = req.body;
+
+    // Email configuration
+    const transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+            user: 'jainampokal@gmail.com',
+            pass: 'ioyn wzzz rucp wlfw',         
+        },
+    });
+
+    const mailOptions = {
+        from: `<${email}> Movies Contact..🎥📽️`,
+        to: 'pokaljainam@gmail.com',         
+        subject: `Message from ${name}`,
+        html: `<p><strong>Name:</strong> ${name}</p>
+           <p><strong>Email:</strong> ${email}</p>
+           <p><strong>Website:</strong> ${website}</p>
+           <p><strong>Message:</strong><br>${message}</p>`,
+    };
+
+    transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+            return res.send('Error sending message.');
+        }
+        return res.redirect('/');
+    });
 });
 
 // Start server

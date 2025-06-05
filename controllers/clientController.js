@@ -50,5 +50,5 @@ module.exports.joinusPage = (req, res) => {
 }
 
 module.exports.contactPage = (req, res) => {
-    return res.render("./pages/contact")
-}
+    return res.render("./pages/contact");
+};
